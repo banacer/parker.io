@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'btu*o8u@2tqquxy!j4%6qx80fpxj2sp)+uzgi=%qual70e79p7'
+SECRET_KEY = 'a_&ay+4ok_y^i_q$dqxr*pb(8iaolupe=_rm*lgi5#v!amuiqj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,9 +77,13 @@ WSGI_APPLICATION = 'parker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'parker',
+            'USER': 'postgres',
+            'PASSWORD': 'Test.123',
+            'HOST': 'localhost',
+            'PORT': '5433',
+        }
 }
 
 
