@@ -2,8 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
+from .models import Device
+from django.contrib.auth.models import User
 
-from .models import User,Device
-
-admin.site.register(User)
 admin.site.register(Device)
