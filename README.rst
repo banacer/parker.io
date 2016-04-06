@@ -1,6 +1,6 @@
 Sample Module Repository
 ========================
 
-This simple project is an example repo for Python projects.
+My hobby project to find parking in a city using sensors and ML
 
-`Learn more <http://www.kennethreitz.org/essays/repository-structure-and-python>`_.
+
