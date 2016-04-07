@@ -9,34 +9,48 @@ function validatePass(pass1,pass2) {
     }
     return pass == confirm;
 }
+var myApp = angular.module('customersApp', []);
 
-var myApp = angular.module('myApp',[]);
+    myApp.factory('dataService', ['$http', function ($http) {
+        var serviceBase = '/api/dataservice/',
+            dataFactory = {};
 
-myApp.service('dataService', function($http) {
-delete $http.defaults.headers.common['X-Requested-With'];
-this.getData = function(callbackFunc) {
-    username = document.getElementById('username').value;
-    $http({
-        method: 'GET',
-        url: 'http://localhost:8000/usernameexist',
-        params: 'username=' + username
-     }).success(function(data){
-        // With the data succesfully returned, call our callback
-        callbackFunc(data);
-    }).error(function(){
-        alert("error");
-    });
- }
-});
-myApp.controller('myCtrl', function($scope, dataService) {
-    $scope.data = null;
-    dataService.getData(function(dataResponse) {
-        if(dataResponse == 1) {
-            $scope.data = 'Username Unavailable';
+        dataFactory.checkUniqueValue = function (value) {
+            return $http.get(serviceBase + 'checkUnique/?username=' + escape(value)).then(
+                function (results) {
+                    return results.data;
+                });
+        };
+
+        return dataFactory;
+
+}]);
+myApp.directive('wcUnique', ['dataService', function (dataService) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModel) {
         }
-        else  {
-            $scope.data = '';
-        }
+    }
+}]);
 
-    });
-});
+myApp.directive('wcUnique', ['dataService', function (dataService) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModel) {
+            element.bind('blur', function (e) {
+                if (!ngModel || !element.val()) return;
+                var currentValue = element.val();
+                dataService.checkUniqueValue(currentValue)
+                    .then(function (unique) {
+                        if (currentValue == element.val()) {
+                             console.log('unique = '+unique);
+                             ngModel.$unique = false
+                             scope.$broadcast('show-errors-check-validity');
+                        }
+                    });
+            });
+        }
+    }
+}]);
