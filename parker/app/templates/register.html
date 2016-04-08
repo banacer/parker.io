@@ -50,7 +50,8 @@
 
             <label for="username" class="sr-only">Email address</label>
             <input name="username" type="text" id="username" class="form-control" placeholder="Username" required autofocus  data-ng-model="form.username" data-wc-unique="{key: customer.id, property: 'email'}">
-            <small class="error" ng-show="signup_form.username.$unique">That username is taken, please try another</small>
+            <small class="error" ng-
+                    ="signup_form.username.$unique">That username is taken, please try another</small>
 
             <label for="inputPassword" class="sr-only">Password</label>
             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
