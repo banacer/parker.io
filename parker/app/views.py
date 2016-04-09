@@ -42,5 +42,5 @@ def signup(request):
 def username_exist(request):
     username = request.GET.get('username')
     if User.objects.filter(username=username).exists():
-        return HttpResponse(True)
-    return HttpResponse(False)
+        return HttpResponse(1)
+    return HttpResponse(0)

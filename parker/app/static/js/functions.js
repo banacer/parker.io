@@ -46,7 +46,13 @@ myApp.directive('wcUnique', ['dataService', function (dataService) {
                     .then(function (unique) {
                         if (currentValue == element.val()) {
                              console.log('unique = '+unique);
-                             ngModel.$unique = false
+                             if(unique == 1) {
+                                document.getElementById("usernameTakenMessage").innerHTML = "That username is taken, please try another"
+                             }
+                             else {
+                                document.getElementById("usernameTakenMessage").innerHTML = ""
+                             }
+                             ngModel.$unique = unique
                              scope.$broadcast('show-errors-check-validity');
                         }
                     });
