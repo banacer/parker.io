@@ -1,3 +1,4 @@
+django
 nose
 bcrypt
 psycopg2

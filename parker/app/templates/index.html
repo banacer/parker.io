@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome to Parker.io</title>
+    {% load staticfiles %}
+        <link href="{% static "css/signin.css" %}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel='stylesheet'>
 </head>
 <body>
-
+    <div class="container">
+        <div class="jumbotron">
+            <h1> Welcome to Parker.io</h1>
+            <p>
+                <a class="small" href="/signin">Login</a>
+            </p>
+            <p>
+                <span  class="small">Dont' have an account?</span>
+                <span class="&nbsp;"></span>
+                <a class="small" href="/signup">Register now</a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>

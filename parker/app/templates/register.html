@@ -34,37 +34,41 @@
 
     </head>
     <body>
-        <div id="signup_form" class="container" name="signup_form" ng-app="customersApp">
+        <div class="container">
+        <div class="jumbotron">
+            <div id="signup_form" class="container" name="signup_form" ng-app="customersApp">
 
-          <form class="form-signin" action="signup" method="POST">
-            <h2 class="form-signin-heading">Create New Account</h2>
+              <form class="form-signin" action="signup" method="POST">
+                <h2 class="form-signin-heading">Create New Account</h2>
 
-            <label for="first_name" class="sr-only">First Name</label>
-            <input name="first_name" type="text" id="first_name" class="form-control" placeholder="First Name" required autofocus>
+                <label for="first_name" class="sr-only">First Name</label>
+                <input name="first_name" type="text" id="first_name" class="form-control" placeholder="First Name" required autofocus>
 
-            <label for="last_name" class="sr-only">Last Name</label>
-            <input name="last_name" type="text" id="last_name" class="form-control" placeholder="Last Name" required autofocus>
+                <label for="last_name" class="sr-only">Last Name</label>
+                <input name="last_name" type="text" id="last_name" class="form-control" placeholder="Last Name" required autofocus>
 
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
-            <label for="username" class="sr-only">Email address</label>
-            <input name="username" type="text" id="username" class="form-control" placeholder="Username" required autofocus  data-ng-model="form.username" data-wc-unique="{key: customer.id, property: 'email'}"> <div id="usernameTakenMessage" class="myerrorclass"></div>
-            <!--<small class="error" ng-show="signup_form.username.$unique">That username is taken, please try another</small> -->
+                <label for="username" class="sr-only">Email address</label>
+                <input name="username" type="text" id="username" class="form-control" placeholder="Username" required autofocus  data-ng-model="form.username" data-wc-unique="{key: customer.id, property: 'email'}"> <div id="usernameTakenMessage" class="myerrorclass"></div>
+                <!--<small class="error" ng-show="signup_form.username.$unique">That username is taken, please try another</small> -->
 
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-            <label for="confirmPassword" class="sr-only">Password</label>
-            <input type="password" id="confirmPassword" class="form-control" placeholder="Password" required onblur="validatePass('inputPassword','confirmPassword')"><div id="passError" class="myerrorclass">   </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div>
-            {% csrf_token %}
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          </form>
-        </div> <!-- /container -->
+                <label for="confirmPassword" class="sr-only">Password</label>
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Password" required onblur="validatePass('inputPassword','confirmPassword')"><div id="passError" class="myerrorclass">   </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                {% csrf_token %}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              </form>
+            </div> <!-- /container -->
+        </div>
+    </div>
     </body>
 </html>
