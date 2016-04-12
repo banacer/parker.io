@@ -46,9 +46,9 @@ body {
 .myerrorclass{
     color: red;
 }
-.logoutLblPos{
 
-   position:fixed;
-   right:10px;
-   top:5px;
+.img-responsive2 {
+    display: inline-block;
+    max-width: 15%;
+    height: auto;
 }

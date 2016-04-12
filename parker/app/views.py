@@ -9,6 +9,10 @@ def index(request):
     else:
         return render(request,'index.html')
 
+def layout(request):
+    return render(request, 'layout.html', {'user': request.user})
+
+
 def getuser(request, user_id):
     try:
         u = User.objects.get(id=user_id)
